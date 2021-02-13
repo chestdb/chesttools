@@ -1,63 +1,76 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'data.dart';
+import 'overview.dart';
+import 'performance.dart';
+import 'storage.dart';
 
 class ToolsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 5,
+      length: 3,
       child: Scaffold(
-        body: Column(
+        appBar: CustomAppBar(),
+        body: TabBarView(
           children: <Widget>[
-            SizedBox(
-              width: double.infinity,
-              child: Material(
-                elevation: 2,
-                child: Row(
-                  children: <Widget>[
-                    SizedBox(width: 16),
-                    FlutterLogo(),
-                    SizedBox(width: 16),
-                    TabBar(
-                      indicatorSize: TabBarIndicatorSize.label,
-                      isScrollable: true,
-                      labelColor: Colors.black,
-                      tabs: <Widget>[
-                        Tab(text: 'Data'),
-                        Tab(text: 'Queries'),
-                        Tab(text: 'Indizes'),
-                        Tab(text: 'Performance'),
-                        Tab(text: 'Storage'),
-                      ],
-                    ),
-                    Spacer(),
-                    IconButton(
-                      onPressed: () => print('Help'),
-                      icon: Icon(Icons.info_outline),
-                    ),
-                    IconButton(
-                      onPressed: () => print('Settings'),
-                      icon: Icon(Icons.settings),
-                    ),
-                    IconButton(
-                      onPressed: () => print('Help'),
-                      icon: Icon(Icons.help_outline),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Expanded(
-              child: Center(
-                child: Row(
-                  children: <Widget>[
-                    Text('Hello world.'),
-                  ],
-                ),
-              ),
-            ),
+            DataPage(),
+            PerformancePage(),
+            StoragePage(),
           ],
         ),
       ),
     );
   }
+}
+
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.white,
+      elevation: 2,
+      child: Row(
+        children: [
+          SizedBox(width: 16),
+          Text(
+            'Chest',
+            style: GoogleFonts.rajdhani(
+              fontWeight: FontWeight.bold,
+              fontSize: 24,
+            ),
+          ),
+          Spacer(),
+          TabBar(
+            indicatorSize: TabBarIndicatorSize.label,
+            isScrollable: true,
+            labelColor: Colors.black,
+            tabs: <Widget>[
+              Tab(text: 'Data'),
+              Tab(text: 'Performance'),
+              Tab(text: 'Storage'),
+            ],
+          ),
+          Spacer(),
+          IconButton(
+            onPressed: () => print('Help'),
+            icon: Icon(Icons.info_outline),
+          ),
+          IconButton(
+            onPressed: () => print('Settings'),
+            icon: Icon(Icons.settings),
+          ),
+          IconButton(
+            onPressed: () => print('Help'),
+            icon: Icon(Icons.help_outline),
+          ),
+          SizedBox(width: 16),
+        ],
+      ),
+    );
+  }
+
+  @override
+  Size get preferredSize => AppBar().preferredSize;
 }

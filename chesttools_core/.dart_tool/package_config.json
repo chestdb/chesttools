@@ -19,7 +19,7 @@
       "packageUri": "lib/"
     }
   ],
-  "generated": "2020-07-23T15:14:46.627284Z",
+  "generated": "2021-01-13T15:25:09.147639Z",
   "generator": "pub",
-  "generatorVersion": "2.9.0-21.2.beta"
+  "generatorVersion": "2.10.4"
 }
