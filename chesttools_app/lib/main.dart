@@ -42,7 +42,7 @@ class ChestToolsApp extends StatelessWidget {
         'connect': (_) => ConnectPage(),
         'tools': (_) => ToolsPage(),
       },
-      home: ConnectPage(),
+      home: ToolsPage(),
     );
   }
 }

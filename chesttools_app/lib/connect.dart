@@ -73,11 +73,15 @@ class _ConnectPageState extends State<ConnectPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(
-                'Chest',
-                style: GoogleFonts.rajdhani(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 48,
+              InkWell(
+                onTap: () =>
+                    Navigator.of(context).pushReplacementNamed('tools'),
+                child: Text(
+                  'Chest',
+                  style: GoogleFonts.rajdhani(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 48,
+                  ),
                 ),
               ),
               Text('To connect, simply paste a URL to a Dart or Flutter '
